@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { algorithms, mapAlgorithmNameToComponent } from "./utils/utilities";
 
-function App() {
+import HeaderComponent from "./components/layout/HeaderComponent";
+import ControlComponent from "./components/control/ControlComponent";
+import SortingAlgorithmsVisualizer from "./components/visualizer/SortingAlgorithmsVisualizer";
+
+const App = () => {
+  const [choosen, setChoosen] = useState([]);
+
+  const renderVisualizer = (params) => {
+    setChoosen(mapAlgorithmNameToComponent(params));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col px-2 py-1 h-full">
+      <HeaderComponent />
+      <ControlComponent algorithms={algorithms} onSubmit={renderVisualizer} />
+      <div className="my-3 h-full">
+        {!choosen.length ? null : (
+          <SortingAlgorithmsVisualizer choosen={choosen} />
+        )}
+      </div>
     </div>
   );
-}
+};
 
 export default App;
