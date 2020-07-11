@@ -41,6 +41,9 @@ export default function ControlComponent({ algorithms, onSubmit }) {
         >
           Sort
         </button>
+        <button className="font-bold px-6 bg-gray-100 shadow rounded text-red-600 mx-2">
+          Start Over
+        </button>
       </div>
     </div>
   );

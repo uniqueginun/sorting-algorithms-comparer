@@ -2,7 +2,7 @@ import React from "react";
 
 export default function VisualItem({ unsortedItems, title }) {
   const itemStyle = (height) => {
-    return { width: 6, height: height };
+    return { width: 3, height: height / 2, marginRight: 1 };
   };
 
   return (
