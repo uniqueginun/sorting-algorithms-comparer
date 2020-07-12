@@ -13,15 +13,20 @@ const App = () => {
   };
 
   const restart = () => {
-    console.log('resrttin')
-    setChoosen([])
-  }
+    setChoosen([]);
+  };
 
   return (
     <div className="flex flex-col px-2 py-1 h-full">
-      <ControlComponent algorithms={algorithms} onSubmit={renderVisualizer} restart={restart} />
+      <ControlComponent
+        algorithms={algorithms}
+        onSubmit={renderVisualizer}
+        restart={restart}
+      />
       <div className="my-3 visualizer">
-        {!choosen.length ? <div>select alqorithms to start</div> : (
+        {!choosen.length ? (
+          <div>select alqorithms to start</div>
+        ) : (
           <SortingAlgorithmsVisualizer choosen={choosen} />
         )}
       </div>

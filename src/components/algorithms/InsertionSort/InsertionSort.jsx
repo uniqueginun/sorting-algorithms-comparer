@@ -6,18 +6,22 @@ import { sleep } from "../../../utils/utilities";
 
 export default function InsertionSort({ items }) {
   const [unsortedItems, setUnsortedItems] = useState(items);
-  const [stop, setStop] = useState(false)
+  const [stop, setStop] = useState(false);
 
   useEffect(() => {
+    let isMounted = true;
     const run = async () => {
       let sortedArraySteps = insertionSort([...unsortedItems]);
       for (let i = 0; i < sortedArraySteps.length; i++) {
         await sleep(5);
-        setUnsortedItems(sortedArraySteps[i]);
+        isMounted && setUnsortedItems(sortedArraySteps[i]);
       }
-      setStop(true)
+      setStop(true);
     };
-    run();
+
+    isMounted && run();
+
+    return () => (isMounted = false);
   }, []);
 
   return (

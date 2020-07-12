@@ -2,9 +2,8 @@ import React from "react";
 import Timer from "./Timer";
 
 export default function VisualItem({ unsortedItems, title, stop }) {
-
   const itemStyle = (height) => {
-    return { width: 3, height: height / 2, marginRight: 1 };
+    return { width: 1, height: height / 2, marginRight: 1 };
   };
 
   return (
