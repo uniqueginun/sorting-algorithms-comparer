@@ -13,7 +13,7 @@ export default function InsertionSort({ items }) {
     const run = async () => {
       let sortedArraySteps = insertionSort([...unsortedItems]);
       for (let i = 0; i < sortedArraySteps.length; i++) {
-        await sleep(5);
+        await sleep(1);
         isMounted && setUnsortedItems(sortedArraySteps[i]);
       }
       setStop(true);

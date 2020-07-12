@@ -2,8 +2,13 @@ import React from "react";
 import Timer from "./Timer";
 
 export default function VisualItem({ unsortedItems, title, stop }) {
-  const itemStyle = (height) => {
-    return { width: 1, height: height / 2, marginRight: 1 };
+  const itemStyle = ({ height, isCurrent }) => {
+    return {
+      width: 3,
+      height: height / 2,
+      marginRight: 1,
+      backgroundColor: isCurrent ? "red" : "black",
+    };
   };
 
   return (
@@ -13,8 +18,12 @@ export default function VisualItem({ unsortedItems, title, stop }) {
         <Timer stop={stop} />
       </div>
       <div className="flex mt-2">
-        {unsortedItems.map((h, index) => (
-          <div className="bg-gray-800" key={index} style={itemStyle(h)}></div>
+        {unsortedItems.map((element, index) => (
+          <div
+            className="bg-gray-800"
+            key={index}
+            style={itemStyle(element)}
+          ></div>
         ))}
       </div>
     </>

@@ -7,11 +7,17 @@ const insertionSort = (arrayOfItems) => {
     let j = i - 1;
     while (j >= 0 && arrayOfItems[j] > current) {
       swap(arrayOfItems, j, j + 1);
-      steps.push([...arrayOfItems]);
+      let step = [...arrayOfItems].map((item) => {
+        return { height: item, isCurrent: item === i || item === i - 1 };
+      });
+      steps.push(step);
       j--;
     }
     swap(arrayOfItems, j + 1, arrayOfItems.indexOf(current));
-    steps.push([...arrayOfItems]);
+    let step = [...arrayOfItems].map((item) => {
+      return { height: item, isCurrent: item === i || item === i - 1 };
+    });
+    steps.push(step);
   }
   return steps;
 };
