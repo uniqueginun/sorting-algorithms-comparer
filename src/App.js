@@ -12,11 +12,16 @@ const App = () => {
     setChoosen(mapAlgorithmNameToComponent(params));
   };
 
+  const restart = () => {
+    console.log('resrttin')
+    setChoosen([])
+  }
+
   return (
     <div className="flex flex-col px-2 py-1 h-full">
-      <ControlComponent algorithms={algorithms} onSubmit={renderVisualizer} />
+      <ControlComponent algorithms={algorithms} onSubmit={renderVisualizer} restart={restart} />
       <div className="my-3 visualizer">
-        {!choosen.length ? null : (
+        {!choosen.length ? <div>select alqorithms to start</div> : (
           <SortingAlgorithmsVisualizer choosen={choosen} />
         )}
       </div>

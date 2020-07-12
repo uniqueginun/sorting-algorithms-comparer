@@ -3,7 +3,6 @@ import { getArrayOfRandomIntegers } from "../../utils/utilities";
 import * as SortingAlgorithms from "../algorithms";
 
 export default function SortingAlgorithmsVisualizer({ choosen }) {
-  const [items, setItems] = useState(getArrayOfRandomIntegers(5, 350));
 
   const [algorithms, setAlgorithms] = useState([]);
 
@@ -14,7 +13,7 @@ export default function SortingAlgorithmsVisualizer({ choosen }) {
   const renderComparer = () => {
     return algorithms.map((algorithm) => {
       let AlgoComponent = SortingAlgorithms[algorithm];
-      return <AlgoComponent items={[...items]} key={algorithm} />;
+      return <AlgoComponent items={[...getArrayOfRandomIntegers(5, 350)]} key={algorithm} />;
     });
   };
 

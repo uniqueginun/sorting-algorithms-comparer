@@ -4,6 +4,14 @@ export default function Timer({ stop }) {
 
     const [timer, setTimer] = useState(0);
 
+    const clock = timer => {
+        var minutes = Math.floor(timer / 60);
+        var seconds = timer - minutes * 60;
+        var hours = Math.floor(timer / 3600);
+
+        return `${hours}:${minutes}:${seconds}`;
+    }
+
     useEffect(() => {
         const interval = setInterval(() => {
             setTimer(timer => timer + 1);
@@ -19,6 +27,6 @@ export default function Timer({ stop }) {
     }, [stop]);
 
     return (
-        <div>timing: {timer}</div>
+        <div>timing: {clock(timer)}</div>
     )
 }

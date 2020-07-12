@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { copyAndRemove } from "../../utils/utilities";
 
-export default function ControlComponent({ algorithms, onSubmit }) {
+export default function ControlComponent({ algorithms, onSubmit, restart }) {
   const [compare, setCompare] = useState([]);
   const setComparison = async (e) => {
     let arr = await copyAndRemove([...compare], e);
@@ -41,7 +41,7 @@ export default function ControlComponent({ algorithms, onSubmit }) {
         >
           {compare.length > 1 ? "Compare" : "Sort"}
         </button>
-        <button className="font-bold px-6 bg-gray-100 shadow rounded text-red-600 mx-2">
+        <button onClick={restart} className="font-bold px-6 bg-gray-100 shadow rounded text-red-600 mx-2">
           Start Over
         </button>
       </div>
