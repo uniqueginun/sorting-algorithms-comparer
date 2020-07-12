@@ -6,6 +6,7 @@ import { sleep } from "../../../utils/utilities";
 
 export default function InsertionSort({ items }) {
   const [unsortedItems, setUnsortedItems] = useState(items);
+  const [stop, setStop] = useState(false)
 
   useEffect(() => {
     const run = async () => {
@@ -14,6 +15,7 @@ export default function InsertionSort({ items }) {
         await sleep(5);
         setUnsortedItems(sortedArraySteps[i]);
       }
+      setStop(true)
     };
     run();
   }, []);
@@ -23,6 +25,7 @@ export default function InsertionSort({ items }) {
       <VisualItem
         title="Insertion sort algorithm"
         unsortedItems={unsortedItems}
+        stop={stop}
       />
     </div>
   );
