@@ -14,7 +14,7 @@ export default function ControlComponent({ algorithms, onSubmit }) {
     onSubmit(compare);
   };
   return (
-    <div className="mt-4 flex flex-row w-full items-center justify-center">
+    <div className="py-6 flex flex-row w-full items-center justify-center">
       <div>
         <div className="flex items-center">
           {algorithms.map((algorithm, index) => (
@@ -37,7 +37,7 @@ export default function ControlComponent({ algorithms, onSubmit }) {
           onClick={setParamerters}
           className={`font-bold px-6 bg-gray-100 shadow rounded ${
             !compare.length ? "text-gray-300" : "text-blue-500"
-          }`}
+            }`}
         >
           {compare.length > 1 ? "Compare" : "Sort"}
         </button>

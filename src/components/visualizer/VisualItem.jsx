@@ -1,6 +1,8 @@
 import React from "react";
+import Timer from "./Timer";
 
 export default function VisualItem({ unsortedItems, title }) {
+
   const itemStyle = (height) => {
     return { width: 3, height: height / 2, marginRight: 1 };
   };
@@ -9,7 +11,7 @@ export default function VisualItem({ unsortedItems, title }) {
     <>
       <div className="w-full flex flex-row items-center justify-between">
         <h3>{title}</h3>
-        <div>timing clock</div>
+        <Timer />
       </div>
       <div className="flex mt-2">
         {unsortedItems.map((h, index) => (
